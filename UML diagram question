@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    static int totalStudents;  // Static variable to count the total number of students
+    int age;
+
+public:
+    // Constructor to initialize the age and increment totalStudents
+    Student(int a) {
+        age = a;
+        totalStudents++;  // Increment the static totalStudents counter
+    }
+
+    // Static method to return the total number of students
+    static int getTotalStudents() {
+        return totalStudents;
+    }
+};
+
+// Initialize the static variable
+int Student::totalStudents = 0;
+
+int main() {
+    // Create Student objects
+    Student student1(32);
+    Student student2(22);
+    Student student3(20);
+
+    // Display the total number of students
+    cout << "Total number of students: " << Student::getTotalStudents() << endl;
+
+    return 0;
+}
